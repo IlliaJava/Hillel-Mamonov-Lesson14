@@ -1,5 +1,7 @@
 package com.hillel.lesson14.task1;
 
+import java.util.Objects;
+
 public class Person {
     private final String firstName;
     private final String familyName;
@@ -13,6 +15,19 @@ public class Person {
         this.age = age;
         this.height = height;
         this.weight = weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) && Objects.equals(familyName, person.familyName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, familyName);
     }
 
     @Override

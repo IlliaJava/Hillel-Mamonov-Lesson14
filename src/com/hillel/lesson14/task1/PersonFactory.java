@@ -1,10 +1,8 @@
 package com.hillel.lesson14.task1;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class PersonFactory {
-
     static Random RANDOM = new Random();
 
     /**
@@ -46,6 +44,12 @@ public class PersonFactory {
     public static familyNamesList randomFamilyName() {
         familyNamesList[] familyNames = familyNamesList.values();
         return familyNames[new Random().nextInt(familyNames.length)];
+    }
+
+    public static void removeDuplicates(List<Person> personList){
+        Set<Person> personSet = new LinkedHashSet<>(personList);
+        personList.clear();
+        personList.addAll(personSet);
     }
 
 }

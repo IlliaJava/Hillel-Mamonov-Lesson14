@@ -5,13 +5,17 @@ package com.hillel.lesson14.task1;
         Т.е. останутся только люди с уникальной комбинайцией имя+фамилия. Остальные поля в расчет не берутся.*/
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
         List<Person> personsList = new ArrayList<>();
         PersonFactory.generatePersonsList(personsList,100);
-        System.out.println(personsList);
-        System.out.println("\nЧисло людей в списке = " + personsList.size());
+
+        System.out.println("Число людей в оригинальном списке = " + personsList.size());
+        PersonFactory.removeDuplicates(personsList);
+        System.out.println("\nЧисло уникальных людей (по имени и фамилии) в отфильтрованном списке = " + personsList.size());
     }
 }
